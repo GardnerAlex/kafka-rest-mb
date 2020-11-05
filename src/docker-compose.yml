@@ -1,0 +1,14 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - ${ZOOKEEPER_PORTS}
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - ${DOCKER_KAFKA_PORTS}
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: ${DOCKER_KAFKA_HOST}
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: ${TOPICS}
