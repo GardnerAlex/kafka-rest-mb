@@ -1,0 +1,3 @@
+export {
+  sendData
+} from './api';

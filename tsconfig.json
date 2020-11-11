@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "module": "commonjs",
+    "noImplicitAny": true,
+//    "outDir": "./build",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es6",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "allowUnusedLabels": true,
+    "charset": "utf-8",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitReturns": true,
+    "outDir": "build/back/",
+    "pretty": false,
+    "rootDir": "",
+    "stripInternal": true
+  },
+  "include": [
+    "src_front/server_front/*.ts",
+    "src_back/**/*.ts"
+  ],
+  "exclude": ["node_modules"],
+  "baseUrl": "."
+}

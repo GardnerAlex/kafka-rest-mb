@@ -1,17 +1,15 @@
 const path = require('path');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const postcssPresetEnv = require('postcss-preset-env');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
-const distFolder = 'build';
+const distFolder = 'build/front';
 
 module.exports = {
-  entry: { main: './src/index.jsx' },
+  entry: { main: './src_front/index.jsx' },
   module: {
     rules: [
       {
@@ -20,32 +18,6 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      },
-      {
-        test: /\.scss$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: devMode
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              sourceMap: true,
-              plugins: () => [
-                postcssPresetEnv({ stage: 4, autoprefixer: { grid: true } })
-              ]
-            }
-          },
-          { loader: 'sass-loader', options: { sourceMap: true } }
-        ]
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
@@ -70,14 +42,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Malwarebytes Test App',
       template: './public/index.html',
-      favicon: './public/favicon.ico'
-    }),
-    new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+      favicon: './public/favicon-196x196.png'
     }),
     new Dotenv({
-      path: './.env.development'
+      path: './.env'
     })
   ],
   devServer: {

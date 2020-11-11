@@ -12,3 +12,10 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: ${DOCKER_KAFKA_HOST}
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_CREATE_TOPICS: ${TOPICS}
+  redis:
+    image: redis:alpine
+    ports:
+      - ${REDIS_PORTS}
+    environment:
+      ALLOW_EMPTY_PASSWORD: 'yes'
+      REDIS_REPLICATION_MODE: ${REDIS_REPLICATION_MODE}
