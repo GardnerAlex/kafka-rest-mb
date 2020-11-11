@@ -4,7 +4,7 @@
 
 Microservice App, consisting of next services:  
 
- - Front End service
+ - Front End service (available by default on [http://localhost:9091/](http://localhost:9091/))
  - Backend API DataFlow service
  - Backend Data Sink service
  - Backend Data Flow service
