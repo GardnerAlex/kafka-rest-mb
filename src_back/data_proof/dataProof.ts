@@ -14,7 +14,7 @@ try {
     .forEach((message: DataSinkOutput) => {
       tokenizer.decrypt(message)
         .then((res: string) => {
-          console.log('Data Proof decrypted value', { [message.transactionId]: JSON.parse(res) });
+          console.log({ [message.transactionId]: JSON.parse(res) });
         })
         .catch((e) => console.log('Data Flow Output error', e));
     })
